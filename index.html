@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#14233b">
+  <title>Tomica 典藏庫</title>
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar">
+      <button class="brand" data-view="dashboard"><span class="brand-mark"><i></i><i></i></span><span><b>Tomica</b><small>典藏庫</small></span></button>
+      <nav>
+        <p>典藏管理</p>
+        <button class="active" data-view="dashboard"><span>▦</span>首頁總覽</button>
+        <button data-view="collection"><span>▤</span>我的典藏<em>3</em></button>
+        <button data-view="models"><span>◇</span>車款資料庫</button>
+        <button data-view="backup"><span>⇄</span>匯入與備份</button>
+        <p>工具</p>
+        <button data-view="backup"><span>◫</span>統計分析</button>
+        <button data-view="backup"><span>⚙</span>系統設定</button>
+      </nav>
+      <div class="storage"><div><span>本機儲存空間</span><b>18.4 MB</b></div><i></i><small>V1.0 Draft · IndexedDB 預留</small></div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="mobile-logo" data-view="dashboard">T</button>
+        <label class="search"><span>⌕</span><input id="search" placeholder="搜尋名稱、商品編號或底盤刻印…"><kbd>Ctrl K</kbd></label>
+        <button class="theme" id="theme" aria-label="切換深色模式">☾</button>
+        <button class="primary" data-view="add">＋ 新增藏品</button>
+      </header>
+
+      <div class="content">
+        <section class="view active" id="dashboard">
+          <div class="page-title"><div><span class="eyebrow">2026 年 8 月 22 日</span><h1>晚安，祺崴</h1><p>你的收藏目前有 3 台，還有 2 個項目等待確認。</p></div><button class="ghost" data-view="collection">查看全部典藏 →</button></div>
+          <div class="stats">
+            <article><i>▤</i><span>收藏總數</span><strong>3</strong><small><b>＋2</b> 本月新增</small></article>
+            <article><i>◇</i><span>不同版本</span><strong>3</strong><small>涵蓋 2 個系列</small></article>
+            <article><i>□</i><span>盒裝比例</span><strong>67<sup>%</sup></strong><small>2 台保留包裝</small></article>
+            <article class="attention"><i>!</i><span>待處理項目</span><strong>2</strong><small>需要你的確認</small></article>
+          </div>
+          <div class="dashboard-grid">
+            <section class="panel recent"><header><div><h2>最近加入</h2><p>最近新增或更新的收藏</p></div></header><div id="recent-list"></div></section>
+            <section class="panel tasks"><header><div><h2>待處理</h2><p>補齊資料，讓典藏更完整</p></div><b>2</b></header><button data-view="detail"><i>⌕</i><span><strong>確認包裝配對</strong><small>Fairlady 240ZG 的外盒與底盤編號不同</small></span>›</button><button data-view="add"><i>▧</i><span><strong>補拍底盤照片</strong><small>Honda Freed 尚缺底盤刻印照片</small></span>›</button></section>
+          </div>
+          <section class="panel distribution"><header><div><h2>收藏分布</h2><p>依系列快速檢視</p></div></header><div class="bars"><div><span>Tomica Event Model</span><i><b style="width:67%"></b></i><strong>2</strong></div><div><span>Tomica Standard</span><i><b style="width:34%"></b></i><strong>1</strong></div><div><span>Tomica Premium</span><i><b style="width:2%"></b></i><strong>0</strong></div></div></section>
+        </section>
+
+        <section class="view" id="collection">
+          <div class="page-title"><div><h1>我的典藏</h1><p id="collection-copy">瀏覽、搜尋與整理每一件實際收藏品。</p></div><div><button class="ghost">篩選 2</button> <button class="ghost">卡片 ▦</button></div></div>
+          <div class="filters"><button class="active">全部 3</button><button>待查證 1</button><button>有盒 2</button><button>散車 1</button><select><option>最近更新</option><option>商品編號</option><option>車名</option></select></div>
+          <div class="collection-grid" id="collection-grid"></div><div class="empty" id="empty"><span>⌕</span><h2>找不到符合的藏品</h2><p>試試其他名稱、商品編號或底盤刻印。</p></div>
+        </section>
+
+        <section class="view" id="detail">
+          <button class="back" data-view="collection">← 返回我的典藏</button>
+          <div class="detail-head"><div><span class="tag warn">待查證</span><b>Event Model No.08</b><h1>Nissan Fairlady 240ZG<br>Patrol Car</h1><p>Tomica Event Model · 活動限定</p></div><button class="primary" data-view="add">編輯藏品</button></div>
+          <div class="detail-grid"><section class="gallery"><div class="main-photo">🚓<small>主圖</small></div><div class="thumbs"><button>🚓</button><button>車底</button><button>盒裝</button><button>＋</button></div></section><section class="panel data"><div class="data-block"><h2>編號資訊 <em>✓ 分開保存</em></h2><dl><div><dt>商品／系列編號</dt><dd>Event Model No.08</dd></div><div><dt>底盤刻印編號</dt><dd>No.58</dd></div><div><dt>歷史／收藏分類</dt><dd>No.44-2</dd></div></dl></div><div class="notice"><b>商品編號與底盤刻印不同</b><p>兩者皆為有效資訊，分開保存且不互相覆蓋。</p></div><div class="data-block"><h2>車款與版本</h2><dl><div><dt>製造商</dt><dd>Nissan</dd></div><div><dt>比例</dt><dd>1/60</dd></div><div><dt>製造地</dt><dd>中國</dd></div><div><dt>發行類型</dt><dd>活動限定</dd></div></dl></div><div class="data-block"><h2>收藏狀況</h2><dl><div><dt>車體</dt><dd>良好</dd></div><div><dt>包裝</dt><dd>有盒・疑似原配</dd></div><div><dt>收藏狀態</dt><dd>持有</dd></div><div><dt>資料完整度</dt><dd>待查版本</dd></div></dl></div></section></div>
+        </section>
+
+        <section class="view" id="add">
+          <div class="page-title"><div><h1>新增藏品</h1><p>建立每一件實際藏品的獨立紀錄。</p></div><button class="ghost" data-view="collection">取消</button></div>
+          <div class="form-layout"><aside class="steps"><button class="active"><i>1</i><span>基本資料<small>車款與發行版本</small></span></button><button><i>2</i><span>實體狀況<small>底盤、輪胎與保存</small></span></button><button><i>3</i><span>包裝配件<small>盒裝與原配判定</small></span></button><button><i>4</i><span>照片<small>主圖與細節照</small></span></button><button><i>5</i><span>取得資訊<small>日期、來源與價格</small></span></button></aside><form class="panel form-card" id="item-form"><header><span>步驟 1／5</span><h2>車款與版本</h2><p>不確定的資訊可以保留「未知」，稍後再補齊。</p></header><div class="form-grid"><label class="wide">顯示名稱 <em>必填</em><input name="name" value="Mazda Cosmo Sport" required></label><label>製造商 <em>必填</em><input name="maker" value="Mazda" required></label><label>Tomica 系列<select name="series"><option>Tomica Event Model</option><option>Tomica Standard</option><option>Tomica Premium</option></select></label><label>商品／系列編號<input name="productNumber" value="Event Model ★★ No.21"><small>以商品或包裝上的編號為準</small></label><label>發行類型<select name="releaseType"><option>活動限定</option><option>一般</option><option>店鋪限定</option></select></label></div><div class="rule"><i>i</i><span><b>商品編號與底盤編號將分開保存</b><p>底盤未刻 No. 時，可在下一步選擇「明確無編號」。</p></span></div><footer><span id="save-status">尚未儲存</span><div><button type="button" class="ghost" id="save-draft">儲存草稿</button><button class="primary">儲存並繼續 →</button></div></footer></form></div>
+        </section>
+
+        <section class="view" id="models"><div class="page-title"><div><h1>車款資料庫</h1><p>管理車款 Master 與每一次正式發行版本。</p></div><button class="primary" data-view="add">＋ 新增發行版本</button></div><div class="panel table-wrap"><table><thead><tr><th>車款</th><th>發行版本</th><th>商品編號</th><th>底盤編號</th><th>藏品</th><th>狀態</th></tr></thead><tbody id="model-rows"></tbody></table></div></section>
+        <section class="view" id="backup"><div class="page-title"><div><h1>匯入與備份</h1><p>完整保護文字資料、照片與資料結構版本。</p></div></div><div class="backup-grid"><article class="panel backup-card"><span>↓</span><h2>完整 JSON 備份</h2><p>包含所有藏品、版本、包裝、疑點與圖片清單。</p><button class="primary" id="export-json">立即匯出</button></article><article class="panel backup-card"><span>↑</span><h2>還原典藏資料</h2><p>還原前先驗證版本與摘要，不會直接覆蓋。</p><button class="ghost">選擇備份檔</button></article><article class="panel backup-card"><span>▤</span><h2>CSV 資料交換</h2><p>適合批次整理主要文字欄位，不包含照片。</p><button class="ghost">匯入／匯出 CSV</button></article></div></section>
+      </div>
+    </main>
+    <nav class="bottom-nav"><button data-view="dashboard"><span>▦</span>首頁</button><button data-view="collection"><span>▤</span>典藏</button><button class="mobile-add" data-view="add"><span>＋</span>新增</button><button data-view="models"><span>⌕</span>搜尋</button><button data-view="backup"><span>⚙</span>設定</button></nav>
+    <div class="toast" id="toast"></div>
+  </div>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
